@@ -25,12 +25,13 @@ And also a shoutout to [Chu-Tak Li](https://chutakcode.wixsite.com/website) for 
       !cd watermark-removal
 
 - Since Google Colab uses the latest Tensorflow 2x version and this project uses 1.15.0, downgrade to Tensorflow 1.15.0 version and restart the runtime, (`although the new version of Google Colab does not need you to restart the runtime`).
+- As Tensorflow 1.15.0 has been obsoleted, I tried successfully with tensorflow 2.13 in my WSL2 Ubuntu 22.04.
 
-      !pip install tensorflow==1.15.0
+      !pip install tensorflow==2.13.0
 
-- Install tensorflow toolkit [neuralgym](https://github.com/JiahuiYu/neuralgym).
+- Install tensorflow toolkit [neuralgym](https://github.com/bg1szd/neuralgym). (To support tensorflow v2, install from the forked repo)
 
-      !pip install git+https://github.com/JiahuiYu/neuralgym
+      !pip install git+https://github.com/bg1szd/neuralgym
 
 - Download the model dirs using this [link](https://drive.google.com/drive/folders/1xRV4EdjJuAfsX9pQme6XeoFznKXG0ptJ?usp=sharing) and put it under `model/` (rename `checkpoint.txt` to `checkpoint` because sometimes google drive automatically adds .txt after download)
 
