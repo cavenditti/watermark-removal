@@ -43,9 +43,9 @@ def gen_conv(x, cnum, ksize, stride=1, rate=1, name='conv',
         p = int(rate*(ksize-1)/2)
         x = tf.pad(x, [[0,0], [p, p], [p, p], [0,0]], mode=padding)
         padding = 'VALID'
-    x = tf.compat.v1.layers.conv2d(
-        x, cnum, ksize, stride, dilation_rate=rate,
-        activation=None, padding=padding, name=name)
+    x = tf.keras.layers.Conv2D(
+        cnum, ksize, strides=stride, dilation_rate=rate,
+        activation=None, padding=padding, name=name)(x)
     if cnum == 3 or activation is None:
         # conv for output
         return x
@@ -499,7 +499,7 @@ def flow_to_image_tf(flow, name='flow_to_image'):
     """Tensorflow ops for computing flow to image.
     """
     with tf.compat.v1.variable_scope(name), tf.device('/cpu:0'):
-        img = tf.compat.v1.py_func(flow_to_image, [flow], tf.float32, stateful=False)
+        img = tf.compat.v1.py_function(flow_to_image, [flow], tf.float32)
         img.set_shape(flow.get_shape().as_list()[0:-1]+[3])
         img = img / 127.5 - 1.
         return img

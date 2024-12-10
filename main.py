@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 from preprocess_image import preprocess_image
 import tensorflow as tf
-import neuralgym as ng
+import neuralgym.neuralgym as ng
 
 from inpaint_model import InpaintCAModel
 

@@ -1,0 +1,16 @@
+[project]
+name = "watermark-removal"
+version = "0.1.1"
+description = "Updated and containerized watermark removal tool"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "neuralgym",
+    "opencv-python>=4.10.0.84",
+    "pillow>=11.0.0",
+    "pyyaml>=6.0.2",
+    "tensorflow>=2.18.0",
+]
+
+[tool.uv.sources]
+neuralgym = { path = "neuralgym", editable = true }
