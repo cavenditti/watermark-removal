@@ -22,7 +22,7 @@ def preprocess_image(image, watermark_type):
         image_type = "portrait"
 
     mask_image = Image.open(
-        "utils/{}/{}/mask.png".format(watermark_type, image_type))
+        "watermarks/{}/{}/mask.png".format(watermark_type, image_type))
     if mask_image.mode != "RGB":
         mask_image = mask_image.convert("RGB")
     mask_image = np.array(mask_image)
